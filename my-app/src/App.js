@@ -2,10 +2,12 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from "axios"
+
 function App() {
-  axios.get(`https://localhost:5000/api/projects`)
+  axios.get("https://localhost:5000/api/projects")
   .then(res => console.log(res.data))
   .catch(err => console.log(err))
+
   return (
     <div className="App">
       <header className="App-header">

@@ -12,3 +12,28 @@ I need this code, just don't know where, perhaps should make some middleware, do
 
 Go code!
 */
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors')
+// const logger = require('./middleware/logger');
+const projectRouter = require(`./projectRouter`)
+const actionRouter = require(`./actionRouter`)
+const server = express();
+server.use(express.json());
+server.use(cors())
+server.use(logger);
+server.use(`/api/projects`,projectRouter)
+server.use(`/api/actions`,actionRouter)
+server.get('/', (req, res) => {
+  res.send(`<h2>hello</h2>`);
+});
+
+
+server.listen(5000, () => console.log("server is listening"))
+function logger (req,res,next){
+console.log(req.method,req.url,req.body,Date.now())
+next()
+}
+
+
+module.exports = server;

@@ -1,0 +1,14 @@
+Mention two parts of Express that you learned about this week?
+The two parts that interested me the most about Express this week has been middle ware and routing.
+
+Describe Middleware?
+Middleware is a set of chained functions that work within Express
+
+Describe a Resource?
+A Resource is data shared from a local or remote host 
+
+What can the API return to help clients know if a request was successful?
+a 200 status or data thats relative to their request
+
+How can we partition our application into sub-applications?
+By routing and using express in various locations
