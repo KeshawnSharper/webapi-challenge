@@ -1,29 +1,20 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
+import axios from "axios"
 import logo from './logo.svg';
 import './App.css';
-import axios from "axios"
-
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Link
+} from "react-router-dom";
+import Profile from "./profile"
+import Home from "./home"
 function App() {
-  axios.get("https://localhost:5000/api/projects")
-  .then(res => console.log(res.data))
-  .catch(err => console.log(err))
+  return (<div>
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Route exact path="/:id" component={Profile} />
+    <Route exact path="/" component={Home}/>
     </div>
   );
 }
